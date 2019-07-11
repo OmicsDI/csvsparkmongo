@@ -8,7 +8,7 @@ import org.mongodb.scala.bson.BsonDocument
 
 object MongoSparkService extends BaseService{
 
-  val mongoClientURI = MongoClientURI(Constants.devMongoUri)
+  val mongoClientURI = MongoClientURI(Constants.prodMongoUri)
 
   val mongoClient =  MongoClient.apply(mongoClientURI)
 
