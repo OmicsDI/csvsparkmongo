@@ -2,9 +2,9 @@ name := "csvsparkmongo"
 
 version := "0.1"
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.11.9"
 
-val sparkVersion = "2.3.0"
+val sparkVersion = "2.3.2"
 
 resolvers ++= Seq(
   "apache-snapshots" at "http://repository.apache.org/snapshots/",
@@ -26,3 +26,8 @@ libraryDependencies ++= Seq(
   "org.scala-lang.modules" %% "scala-java8-compat" % "0.9.0" ,
   "org.apache.spark" %% "spark-core" % sparkVersion
 )
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}
